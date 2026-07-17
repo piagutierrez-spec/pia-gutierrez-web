@@ -3,50 +3,51 @@ import { VirtualAssistant } from "./VirtualAssistant";
 
 const strengths = [
   "Psicología aplicada al aprendizaje",
-  "Diseño de soluciones formativas",
-  "Desarrollo de capacidades",
-  "Criterio estratégico con sensibilidad humana",
+  "Diseño de experiencias formativas",
+  "Desarrollo docente y capacidades",
+  "Estrategia con sensibilidad humana",
 ];
 
-const sections = [
+const serviceCards = [
   {
-    id: "01",
-    title: "Qué hago",
-    body: "Diseño experiencias de aprendizaje y desarrollo que buscan ser claras, útiles y sostenibles, conectando estrategia, estructura y comprensión de las personas.",
+    index: "01",
+    title: "Diseño de experiencias de aprendizaje",
+    body: "Creo soluciones formativas con estructura, intención y claridad pedagógica, articulando competencias, secuencias de aprendizaje y recursos que respondan a necesidades reales.",
+    accent: "warm",
   },
   {
-    id: "02",
-    title: "Cómo trabajo",
-    body: "Me interesa traducir necesidades complejas en soluciones sensibles y bien pensadas, con una mirada que equilibra profundidad, orden y calidez.",
+    index: "02",
+    title: "Desarrollo docente y fortalecimiento de capacidades",
+    body: "Acompaño procesos de mejora docente y desarrollo profesional a partir de diagnósticos, evidencia de desempeño, talleres y conversaciones de retroalimentación con sentido práctico.",
+    accent: "light",
   },
-  {
-    id: "03",
-    title: "Qué puedo seguir mostrando",
-    body: "Esta página puede crecer con proyectos, casos, servicios, conferencias, publicaciones o una biografía más personal, según el tono que quieras construir.",
-  },
-];
-
-const suggestions = [
-  "Reflexiones sobre aprendizaje y formación",
-  "Servicios o formas de colaborar",
-  "Testimonios o recomendaciones",
-  "Diseño de experiencias de aprendizaje",
 ];
 
 const reflections = [
   {
-    title: "Aprender no es solo adquirir contenido",
-    body: "Para mí, la formación tiene más sentido cuando conecta con la experiencia, las motivaciones y los desafíos reales de las personas. Aprender no es solo recibir información: es transformar la manera en que comprendemos y actuamos.",
+    title: "Aprender es transformar, no solo recibir contenido",
+    body: "Para mí, una propuesta formativa tiene más valor cuando moviliza comprensión, criterio y acción. El aprendizaje se vuelve poderoso cuando dialoga con la experiencia y el contexto de las personas.",
   },
   {
-    title: "La psicología aporta profundidad al diseño formativo",
-    body: "Mi formación como psicóloga atraviesa mi manera de pensar el aprendizaje. Me interesa comprender a las personas, sus procesos y sus contextos antes de diseñar una propuesta que pretenda movilizar capacidades.",
+    title: "La psicología amplía la profundidad del diseño",
+    body: "Mi formación me lleva a pensar la formación desde lo humano: las motivaciones, las resistencias, el sentido, la forma en que una persona procesa, conecta y se apropia de lo que aprende.",
   },
   {
-    title: "El criterio humano también es una decisión estratégica",
-    body: "Creo en soluciones de aprendizaje que mantengan rigor y estructura, pero que al mismo tiempo estén diseñadas con sensibilidad. Lo humano no es un adorno: es parte central de la efectividad de la formación.",
+    title: "La sensibilidad también es una decisión estratégica",
+    body: "Creo en soluciones que mantengan rigor, pero que no pierdan humanidad. Lo claro, lo bien estructurado y lo emocionalmente inteligente no compiten entre sí: se potencian.",
   },
 ];
+
+const stats = [
+  { value: "3+", label: "Años en educación y formación" },
+  { value: "4", label: "Líneas de trabajo integradas" },
+  { value: "100%", label: "Mirada centrada en lo humano" },
+];
+
+const gallery = Array.from({ length: 5 }, (_, index) => ({
+  src: "/pia-profile.jpeg",
+  alt: `Retrato profesional de Pía Gutiérrez Sasaky ${index + 1}`,
+}));
 
 export const metadata: Metadata = {
   title: "Pía Gutiérrez Sasaky",
@@ -56,246 +57,212 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="page-shell">
-      <section className="hero-section">
-        <div className="hero-orb hero-orb-one" />
-        <div className="hero-orb hero-orb-two" />
-
+    <main className="lux-page">
+      <section className="lux-hero">
         <div className="content-wrap">
-          <header className="topbar">
-            <div>
-              <p className="eyebrow">Pía Gutiérrez Sasaky</p>
-              <p className="submark">Psicología, aprendizaje y desarrollo</p>
+          <header className="lux-topbar">
+            <div className="brand-lockup">
+              <p className="brand-name">Pía Gutiérrez Sasaky</p>
+              <span className="brand-signature">
+                psicología, aprendizaje y desarrollo
+              </span>
             </div>
 
-            <nav className="top-actions" aria-label="Navegación principal">
-              <a className="nav-link" href="#sobre-mi">
-                Sobre mí
-              </a>
-              <a className="nav-link" href="#enfoque">
-                Enfoque
-              </a>
-              <a className="button button-secondary" href="#contacto">
-                Contacto
+            <nav className="lux-nav" aria-label="Navegación principal">
+              <a href="#sobre-mi">Sobre mí</a>
+              <a href="#servicios">Servicios</a>
+              <a href="#reflexiones">Reflexiones</a>
+              <a href="#contacto">Contacto</a>
+              <a className="button button-secondary" href="#assistant">
+                Habla con mi asistente
               </a>
             </nav>
           </header>
 
-          <div className="hero-grid">
-            <div className="hero-copy">
-              <p className="eyebrow">Learning & Development</p>
-              <h1 className="hero-title">
-                Diseño aprendizaje
+          <div className="hero-stage">
+            <div className="hero-portrait-frame">
+              <img
+                alt="Retrato profesional de Pía Gutiérrez Sasaky"
+                className="hero-portrait"
+                src="/pia-profile.jpeg"
+              />
+            </div>
+
+            <div className="hero-copy-panel">
+              <p className="eyebrow eyebrow-light">Learning & Development</p>
+              <h1 className="hero-impact">
+                Diseñar aprendizaje
                 <br />
-                con sensibilidad,
+                con profundidad,
                 <br />
-                estructura y dirección.
+                humanidad y dirección.
               </h1>
-              <p className="hero-text">
+              <p className="hero-support">
                 Soy psicóloga por la Pontificia Universidad Católica del Perú y
-                trabajo desde el cruce entre aprendizaje, desarrollo de
-                capacidades y diseño de soluciones formativas. Me interesa crear
-                experiencias que combinen criterio estratégico, comprensión
-                humana y una ejecución cuidadosamente pensada.
+                trabajo en el cruce entre diseño de soluciones formativas,
+                desarrollo docente y fortalecimiento de capacidades. Mi mirada
+                busca que la formación tenga rigor, criterio y sentido humano.
               </p>
 
-              <div className="hero-actions">
-                <a className="button button-primary" href="#enfoque">
-                  Explorar mi enfoque
+              <div className="hero-cta-row">
+                <a className="button button-primary" href="#servicios">
+                  Explorar mi trabajo
                 </a>
                 <a
-                  className="button button-ghost"
-                  href="https://www.linkedin.com/in/p%C3%ADa-guti%C3%A9rrez-sasaky/"
+                  className="button button-white"
+                  href="mailto:pia.gutierrez@pucp.edu.pe"
                 >
-                  Ver LinkedIn
-                </a>
-                <a
-                  className="button button-ghost"
-                  href="https://github.com/piagutierrez99"
-                >
-                  Ver GitHub
+                  Escríbeme
                 </a>
               </div>
             </div>
-
-            <aside className="hero-panel" aria-label="Resumen profesional">
-              <div className="hero-panel-inner">
-                <div className="portrait-placeholder">
-                  <div className="portrait-ring">
-                    <img
-                      alt="Retrato profesional de Pía Gutiérrez Sasaky"
-                      className="portrait-image"
-                      src="/pia-profile.jpeg"
-                    />
-                  </div>
-                </div>
-                <p className="panel-kicker">Resumen</p>
-                <div className="stat-stack">
-                  <InfoLine label="Base" value="Psicología" />
-                  <InfoLine
-                    label="Foco"
-                    value="Learning & Development"
-                  />
-                  <InfoLine
-                    label="Interés"
-                    value="Diseño de soluciones de aprendizaje"
-                  />
-                  <InfoLine label="Ubicación" value="Perú" />
-                  <InfoLine label="Correo" value="pia.gutierrez@pucp.edu.pe" />
-                  <InfoLine label="GitHub" value="piagutierrez99" />
-                </div>
-              </div>
-            </aside>
           </div>
         </div>
       </section>
 
-      <section id="sobre-mi" className="content-wrap section-space">
-        <div className="split-section">
-          <div>
-            <p className="eyebrow">Sobre mí</p>
+      <section className="soft-intro">
+        <div className="content-wrap soft-intro-grid">
+          <div className="soft-copy">
+            <p className="eyebrow">Perspectiva</p>
             <h2 className="section-title">
-              Una práctica profesional que busca profundidad, claridad y belleza
-              funcional.
+              Formación pensada desde la persona, no solo desde el contenido.
             </h2>
-          </div>
-
-          <div className="glass-card">
             <p className="section-text">
-              Mi interés está en diseñar procesos de aprendizaje y desarrollo
-              que realmente acompañen a las personas y a las organizaciones. Me
-              atrae construir soluciones que no solo respondan a una necesidad,
-              sino que también se sientan coherentes, humanas y bien sostenidas
-              en el tiempo. Valoro especialmente una perspectiva de formación
-              que tome en cuenta a la persona, su contexto y la complejidad
-              psicológica que atraviesa todo proceso de aprendizaje.
+              Me interesa diseñar experiencias de aprendizaje que sean
+              coherentes, estratégicas y profundamente humanas. Para mí, una
+              buena solución formativa no solo organiza información: acompaña
+              procesos, clarifica criterios y fortalece capacidades con sentido.
             </p>
+            <div className="chip-group" aria-label="Fortalezas principales">
+              {strengths.map((strength) => (
+                <span className="feature-chip" key={strength}>
+                  {strength}
+                </span>
+              ))}
+            </div>
+            <a className="button button-primary dark-button" href="#reflexiones">
+              Leer mis reflexiones
+            </a>
+          </div>
+
+          <div className="intro-portrait-block">
+            <div className="intro-arches" aria-hidden="true" />
+            <div className="intro-portrait-card">
+              <img
+                alt="Retrato profesional de Pía Gutiérrez Sasaky"
+                className="intro-portrait-image"
+                src="/pia-profile.jpeg"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="enfoque" className="content-wrap section-space">
-        <div className="section-header">
-          <div>
-            <p className="eyebrow">Enfoque</p>
-            <h2 className="section-title">
-              Una mezcla entre mirada psicológica, diseño y estrategia.
-            </h2>
-          </div>
-
-          <div className="chip-group" aria-label="Fortalezas principales">
-            {strengths.map((strength) => (
-              <span className="feature-chip" key={strength}>
-                {strength}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="editorial-grid">
-          {sections.map((section) => (
-            <article className="editorial-card" key={section.id}>
-              <p className="card-index">{section.id}</p>
-              <h3 className="card-title">{section.title}</h3>
-              <p className="card-body">{section.body}</p>
-              <span className="card-link">Leer más</span>
+      <section className="metrics-band">
+        <div className="content-wrap metrics-grid">
+          {stats.map((stat) => (
+            <article className="metric-item" key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="content-wrap section-space">
-        <div className="section-header">
+      <section id="sobre-mi" className="curve-section">
+        <div className="content-wrap">
+          <div className="curve-heading">
+            <p className="script-mark">work with care</p>
+            <div className="statement-card">
+              <h2 className="statement-title">
+                Una mirada que une psicología, aprendizaje y diseño con criterio
+                estratégico.
+              </h2>
+              <p className="statement-copy">
+                Mi experiencia en educación superior y posgrado me ha permitido
+                trabajar en diagnóstico de necesidades formativas, desarrollo
+                docente, gestión curricular y diseño instruccional. Me interesa
+                construir propuestas que sean útiles, rigurosas y sostenibles,
+                sin perder de vista lo humano.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios" className="content-wrap service-section">
+        {serviceCards.map((card, index) => (
+          <article
+            className={`service-block ${index % 2 === 1 ? "service-block-reverse" : ""} service-block-${card.accent}`}
+            key={card.title}
+          >
+            <div className="service-copy">
+              <p className="service-index">{card.index}</p>
+              <h3 className="service-title">{card.title}</h3>
+              <p className="service-body">{card.body}</p>
+              <a className="button button-primary dark-button" href="#contacto">
+                Conversemos
+              </a>
+            </div>
+
+            <div className="service-visual">
+              <img
+                alt="Retrato profesional de Pía Gutiérrez Sasaky"
+                className="service-image"
+                src="/pia-profile.jpeg"
+              />
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <section id="reflexiones" className="content-wrap reflection-section">
+        <div className="section-header section-header-centered">
           <div>
             <p className="eyebrow">Reflexiones</p>
             <h2 className="section-title">
-              Una mirada del aprendizaje que parte de lo humano.
+              Mi forma de pensar el aprendizaje parte de lo humano.
             </h2>
           </div>
         </div>
 
-        <div className="editorial-grid editorial-grid-reflections">
+        <div className="reflection-grid">
           {reflections.map((reflection) => (
-            <article className="editorial-card reflection-card" key={reflection.title}>
-              <h3 className="card-title">{reflection.title}</h3>
-              <p className="card-body">{reflection.body}</p>
+            <article className="reflection-card" key={reflection.title}>
+              <h3>{reflection.title}</h3>
+              <p>{reflection.body}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="content-wrap section-space">
-        <div className="formation-layout">
-          <div className="formation-banner">
-            <p className="panel-kicker">Formación</p>
-            <h2 className="formation-title">
-              Base académica con mirada interdisciplinaria.
-            </h2>
-            <p className="formation-text">
-              Mi perfil integra psicología, aprendizaje y desarrollo con una
-              búsqueda constante por diseñar soluciones más relevantes,
-              sensibles y bien articuladas.
-            </p>
+      <section className="gallery-strip">
+        {gallery.map((image, index) => (
+          <div className="gallery-cell" key={`${image.alt}-${index}`}>
+            <img alt={image.alt} src={image.src} />
           </div>
-
-          <div className="formation-grid">
-            <EducationCard
-              title="Pacífico Business School"
-              body="Una referencia importante para fortalecer visión estratégica y comprensión organizacional."
-            />
-            <EducationCard
-              title="Pontificia Universidad Católica del Perú"
-              body="Una base rigurosa para pensar el desarrollo humano, el aprendizaje y los procesos con profundidad."
-            />
-          </div>
-        </div>
+        ))}
       </section>
 
-      <section className="content-wrap section-space">
-        <div className="section-header">
-          <div>
-            <p className="eyebrow">Próximas secciones sugeridas</p>
-            <h2 className="section-title">
-              Para que la web se vea más sólida, estas piezas pueden elevarla
-              muchísimo.
-            </h2>
-          </div>
-        </div>
-
-        <div className="suggestion-grid">
-          {suggestions.map((item) => (
-            <article className="suggestion-card" key={item}>
-              <span className="suggestion-dot" aria-hidden="true" />
-              <p>{item}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="content-wrap section-space">
+      <section id="assistant" className="content-wrap assistant-section">
         <VirtualAssistant />
       </section>
 
-      <section id="contacto" className="cta-section">
-        <div className="content-wrap cta-layout">
+      <section id="contacto" className="closing-section">
+        <div className="content-wrap closing-grid">
           <div>
             <p className="eyebrow">Contacto</p>
-            <h2 className="section-title cta-title">
-              Si quieres, esta página puede evolucionar hacia una presencia más
-              autoral, más comercial o más corporativa.
+            <h2 className="section-title">
+              Si quieres construir una formación más clara, estratégica y
+              humana, conversemos.
             </h2>
-            <p className="section-text cta-copy">
-              Ya quedó más limpia, más legible y mejor jerarquizada. El
-              siguiente salto depende de la información que quieras mostrar y de
-              la imagen profesional que quieras proyectar.
+            <p className="section-text">
+              Correo: pia.gutierrez@pucp.edu.pe
             </p>
           </div>
 
-          <div className="cta-actions">
-            <a
-              className="button button-primary"
-              href="mailto:pia.gutierrez@pucp.edu.pe"
-            >
+          <div className="closing-actions">
+            <a className="button button-primary" href="mailto:pia.gutierrez@pucp.edu.pe">
               Escribir por correo
             </a>
             <a
@@ -313,52 +280,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section id="preguntas" className="content-wrap section-space">
-        <div className="glass-card">
-          <p className="eyebrow">Para la siguiente versión</p>
-          <h2 className="section-title">
-            Con tres piezas más, esta web puede quedar muchísimo más fuerte.
-          </h2>
-          <div className="suggestion-grid">
-            <article className="suggestion-card">
-              <span className="suggestion-dot" aria-hidden="true" />
-              <p>Tu correo profesional o el canal por el que prefieres que te contacten.</p>
-            </article>
-            <article className="suggestion-card">
-              <span className="suggestion-dot" aria-hidden="true" />
-              <p>Dos o tres experiencias concretas que quisieras convertir en casos o relatos más visibles.</p>
-            </article>
-            <article className="suggestion-card">
-              <span className="suggestion-dot" aria-hidden="true" />
-              <p>Si prefieres que la web avance hacia un tono más autoral, más comercial o más institucional.</p>
-            </article>
-            <article className="suggestion-card">
-              <span className="suggestion-dot" aria-hidden="true" />
-              <p>Si quieres incluir foto, servicios, testimonios o un espacio más tipo diario de reflexiones.</p>
-            </article>
-          </div>
-        </div>
-      </section>
     </main>
-  );
-}
-
-function InfoLine({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="info-line">
-      <span>{label}</span>
-      <strong>{value}</strong>
-    </div>
-  );
-}
-
-function EducationCard({ title, body }: { title: string; body: string }) {
-  return (
-    <article className="education-card">
-      <p className="panel-kicker">Formación</p>
-      <h3 className="card-title">{title}</h3>
-      <p className="card-body">{body}</p>
-    </article>
   );
 }
