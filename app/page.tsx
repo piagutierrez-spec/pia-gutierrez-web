@@ -109,11 +109,26 @@ export default function Home() {
                 >
                   Ver LinkedIn
                 </a>
+                <a
+                  className="button button-ghost"
+                  href="https://github.com/piagutierrez99"
+                >
+                  Ver GitHub
+                </a>
               </div>
             </div>
 
             <aside className="hero-panel" aria-label="Resumen profesional">
               <div className="hero-panel-inner">
+                <div className="portrait-placeholder">
+                  <div className="portrait-ring">
+                    <img
+                      alt="Retrato profesional de Pía Gutiérrez Sasaky"
+                      className="portrait-image"
+                      src="/pia-profile.jpeg"
+                    />
+                  </div>
+                </div>
                 <p className="panel-kicker">Resumen</p>
                 <div className="stat-stack">
                   <InfoLine label="Base" value="Psicología" />
@@ -127,6 +142,7 @@ export default function Home() {
                   />
                   <InfoLine label="Ubicación" value="Perú" />
                   <InfoLine label="Correo" value="pia.gutierrez@pucp.edu.pe" />
+                  <InfoLine label="GitHub" value="piagutierrez99" />
                 </div>
               </div>
             </aside>
@@ -287,6 +303,12 @@ export default function Home() {
               href="https://www.linkedin.com/in/p%C3%ADa-guti%C3%A9rrez-sasaky/"
             >
               LinkedIn
+            </a>
+            <a
+              className="button button-ghost"
+              href="https://github.com/piagutierrez99"
+            >
+              GitHub
             </a>
           </div>
         </div>
