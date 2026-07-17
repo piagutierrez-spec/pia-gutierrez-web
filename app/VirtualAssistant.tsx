@@ -94,6 +94,12 @@ export function VirtualAssistant() {
 
   return (
     <>
+      {!open ? (
+        <div className="assistant-teaser" aria-live="polite">
+          <p>Hola, ¿en qué puedo ayudarte?</p>
+        </div>
+      ) : null}
+
       {open ? (
         <div className="assistant-shell assistant-floating" id="assistant">
           <div className="assistant-header">
@@ -160,6 +166,8 @@ export function VirtualAssistant() {
       ) : null}
 
       <button
+        aria-controls="assistant"
+        aria-expanded={open}
         className="assistant-trigger"
         onClick={() => setOpen((current) => !current)}
         type="button"

@@ -261,7 +261,7 @@ export default function Home() {
       <a
         aria-label="Libro de reclamaciones"
         className="claims-fab"
-        href="#contacto"
+        href="mailto:pia.gutierrez@pucp.edu.pe?subject=Libro%20de%20reclamaciones"
         id="libro-reclamaciones"
         title="Libro de reclamaciones"
       >
