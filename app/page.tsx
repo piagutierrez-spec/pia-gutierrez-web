@@ -1,5 +1,37 @@
 import type { Metadata } from "next";
 
+const strengths = [
+  "Psicología aplicada al aprendizaje",
+  "Diseño de soluciones formativas",
+  "Desarrollo de capacidades",
+  "Criterio estratégico con sensibilidad humana",
+];
+
+const sections = [
+  {
+    id: "01",
+    title: "Qué hago",
+    body: "Diseño experiencias de aprendizaje y desarrollo que buscan ser claras, útiles y sostenibles, conectando estrategia, estructura y comprensión de las personas.",
+  },
+  {
+    id: "02",
+    title: "Cómo trabajo",
+    body: "Me interesa traducir necesidades complejas en soluciones sensibles y bien pensadas, con una mirada que equilibra profundidad, orden y calidez.",
+  },
+  {
+    id: "03",
+    title: "Qué puedo seguir mostrando",
+    body: "Esta página puede crecer con proyectos, casos, servicios, conferencias, publicaciones o una biografía más personal, según el tono que quieras construir.",
+  },
+];
+
+const suggestions = [
+  "Casos o proyectos destacados",
+  "Servicios o formas de colaborar",
+  "Testimonios o recomendaciones",
+  "Artículos, ideas o líneas de investigación",
+];
+
 export const metadata: Metadata = {
   title: "Pía Gutiérrez Sasaky",
   description:
@@ -8,188 +40,234 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[var(--color-cream)] text-[var(--color-ink)]">
-      <section className="relative isolate">
-        <div className="hero-glow hero-glow-top" />
-        <div className="hero-glow hero-glow-bottom" />
+    <main className="page-shell">
+      <section className="hero-section">
+        <div className="hero-orb hero-orb-one" />
+        <div className="hero-orb hero-orb-two" />
 
-        <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 py-8 sm:px-10 lg:px-16">
-          <header className="flex items-center justify-between border-b border-[var(--color-line)] pb-5">
+        <div className="content-wrap">
+          <header className="topbar">
             <div>
-              <p className="text-[0.7rem] uppercase tracking-[0.35em] text-[var(--color-muted)]">
-                Página personal
-              </p>
-              <h1 className="mt-2 text-xl uppercase tracking-[0.2em] text-[var(--color-burgundy)]">
-                Pía Gutiérrez Sasaky
-              </h1>
+              <p className="eyebrow">Pía Gutiérrez Sasaky</p>
+              <p className="submark">Psicología, aprendizaje y desarrollo</p>
             </div>
 
-            <a
-              className="rounded-full border border-[var(--color-burgundy)] px-5 py-2 text-xs uppercase tracking-[0.28em] text-[var(--color-burgundy)] transition hover:bg-[var(--color-burgundy)] hover:text-white"
-              href="#contacto"
-            >
-              Conversemos
-            </a>
+            <nav className="top-actions" aria-label="Navegación principal">
+              <a className="nav-link" href="#sobre-mi">
+                Sobre mí
+              </a>
+              <a className="nav-link" href="#enfoque">
+                Enfoque
+              </a>
+              <a className="button button-secondary" href="#contacto">
+                Contacto
+              </a>
+            </nav>
           </header>
 
-          <div className="grid gap-14 py-14 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
-            <div className="max-w-3xl">
-              <p className="mb-5 text-sm uppercase tracking-[0.32em] text-[var(--color-muted)]">
-                Psicología, aprendizaje y desarrollo
+          <div className="hero-grid">
+            <div className="hero-copy">
+              <p className="eyebrow">Learning & Development</p>
+              <h1 className="hero-title">
+                Diseño aprendizaje
+                <br />
+                con sensibilidad,
+                <br />
+                estructura y dirección.
+              </h1>
+              <p className="hero-text">
+                Soy psicóloga y trabajo desde el cruce entre aprendizaje,
+                desarrollo de capacidades y diseño de soluciones formativas. Me
+                interesa crear experiencias que combinen criterio estratégico,
+                comprensión humana y una ejecución cuidadosamente pensada.
               </p>
-              <h2 className="font-serif text-5xl leading-none sm:text-6xl lg:text-8xl">
-                Diseño
-                <br />
-                experiencias
-                <br />
-                de aprendizaje
-                <br />
-                con criterio y sensibilidad.
-              </h2>
-              <p className="mt-8 max-w-xl text-base leading-8 text-[var(--color-copy)] sm:text-lg">
-                Soy psicóloga y me especializo en learning and development, con
-                un enfoque orientado al diseño de soluciones de aprendizaje y
-                al desarrollo de capacidades. Me interesa construir experiencias
-                formativas que conecten sensibilidad humana, estructura y visión
-                estratégica.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <a
-                  className="inline-flex rounded-full bg-[var(--color-burgundy)] px-6 py-3 text-xs uppercase tracking-[0.3em] text-white transition hover:translate-y-[-1px] hover:shadow-[0_20px_40px_rgba(95,5,28,0.2)]"
-                  href="#sobre-mi"
-                >
-                  Conoce mi enfoque
+
+              <div className="hero-actions">
+                <a className="button button-primary" href="#enfoque">
+                  Explorar mi enfoque
                 </a>
                 <a
-                  className="inline-flex rounded-full border border-[var(--color-burgundy)] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[var(--color-burgundy)] transition hover:bg-[var(--color-burgundy)] hover:text-white"
+                  className="button button-ghost"
                   href="https://www.linkedin.com/in/p%C3%ADa-guti%C3%A9rrez-sasaky/"
                 >
-                  LinkedIn
+                  Ver LinkedIn
                 </a>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="palette-card">
-                <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[var(--color-muted)]">
-                  Dirección visual
-                </p>
-                <div className="mt-6 space-y-4">
-                  <ColorChip hex="#5f051c" label="Borgoña profunda" />
-                  <ColorChip hex="#ffcfcf" label="Rosa empolvado" />
-                  <ColorChip hex="#c4bf7d" label="Oliva dorado" />
+            <aside className="hero-panel" aria-label="Resumen profesional">
+              <div className="hero-panel-inner">
+                <p className="panel-kicker">Resumen</p>
+                <div className="stat-stack">
+                  <InfoLine label="Base" value="Psicología" />
+                  <InfoLine
+                    label="Foco"
+                    value="Learning & Development"
+                  />
+                  <InfoLine
+                    label="Interés"
+                    value="Diseño de soluciones de aprendizaje"
+                  />
+                  <InfoLine label="Ubicación" value="Perú" />
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="grid gap-6 border-t border-[var(--color-line)] pt-8 text-sm text-[var(--color-copy)] sm:grid-cols-3">
-            <Stat label="Tono" value="Editorial y calido" />
-            <Stat label="Enfoque" value="Learning & Development" />
-            <Stat label="Base" value="Psicologia y diseño" />
+            </aside>
           </div>
         </div>
       </section>
 
-      <section
-        id="sobre-mi"
-        className="mx-auto max-w-7xl px-6 py-18 sm:px-10 lg:px-16"
-      >
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+      <section id="sobre-mi" className="content-wrap section-space">
+        <div className="split-section">
           <div>
-            <p className="section-kicker">Sobre mí</p>
-            <h3 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
-              Trabajo desde la convicción de que aprender también es una forma
-              de transformación.
-            </h3>
+            <p className="eyebrow">Sobre mí</p>
+            <h2 className="section-title">
+              Una práctica profesional que busca profundidad, claridad y belleza
+              funcional.
+            </h2>
           </div>
 
-          <div className="rounded-[2rem] border border-[var(--color-line)] bg-white/70 p-8 backdrop-blur">
-            <p className="text-base leading-8 text-[var(--color-copy)]">
-              Me interesa diseñar procesos que ayuden a las personas y a las
-              organizaciones a desarrollar capacidades con intención, claridad y
-              profundidad. Mi aproximación une mirada psicológica, comprensión
-              del aprendizaje y criterio para estructurar soluciones que se
-              sientan útiles, humanas y sostenibles.
+          <div className="glass-card">
+            <p className="section-text">
+              Mi interés está en diseñar procesos de aprendizaje y desarrollo
+              que realmente acompañen a las personas y a las organizaciones. Me
+              atrae construir soluciones que no solo respondan a una necesidad,
+              sino que también se sientan coherentes, humanas y bien sostenidas
+              en el tiempo.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-18 sm:px-10 lg:px-16">
-        <div className="grid gap-6 lg:grid-cols-3">
-          <InfoCard
-            index="01"
-            title="Enfoque profesional"
-            body="Desarrollo soluciones de aprendizaje y formación con una mirada que combina estructura, empatía y diseño intencional."
-          />
-          <InfoCard
-            index="02"
-            title="Fortalezas"
-            body="Aprendizaje, desarrollo de capacidades, pensamiento estratégico y sensibilidad para traducir necesidades complejas en experiencias claras."
-          />
-          <InfoCard
-            index="03"
-            title="Estilo de trabajo"
-            body="Me interesa crear propuestas que no solo funcionen, sino que también conecten con las personas, su contexto y su potencial."
-          />
+      <section id="enfoque" className="content-wrap section-space">
+        <div className="section-header">
+          <div>
+            <p className="eyebrow">Enfoque</p>
+            <h2 className="section-title">
+              Una mezcla entre mirada psicológica, diseño y estrategia.
+            </h2>
+          </div>
+
+          <div className="chip-group" aria-label="Fortalezas principales">
+            {strengths.map((strength) => (
+              <span className="feature-chip" key={strength}>
+                {strength}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="editorial-grid">
+          {sections.map((section) => (
+            <article className="editorial-card" key={section.id}>
+              <p className="card-index">{section.id}</p>
+              <h3 className="card-title">{section.title}</h3>
+              <p className="card-body">{section.body}</p>
+              <span className="card-link">Leer más</span>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-18 sm:px-10 lg:px-16">
-        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="rounded-[2rem] bg-[var(--color-burgundy)] p-8 text-white">
-            <p className="text-[0.72rem] uppercase tracking-[0.3em] text-white/70">
-              Formación
-            </p>
-            <h3 className="mt-5 font-serif text-4xl leading-tight">
+      <section className="content-wrap section-space">
+        <div className="formation-layout">
+          <div className="formation-banner">
+            <p className="panel-kicker">Formación</p>
+            <h2 className="formation-title">
               Base académica con mirada interdisciplinaria.
-            </h3>
-            <p className="mt-5 text-base leading-8 text-white/80">
+            </h2>
+            <p className="formation-text">
               Mi perfil integra psicología, aprendizaje y desarrollo con una
               búsqueda constante por diseñar soluciones más relevantes,
-              conscientes y bien pensadas.
+              sensibles y bien articuladas.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="formation-grid">
             <EducationCard
               title="Pacífico Business School"
-              body="Espacio formativo que fortalece una mirada estratégica para el desarrollo y la gestión del aprendizaje."
+              body="Una referencia importante para fortalecer visión estratégica y comprensión organizacional."
             />
             <EducationCard
               title="Pontificia Universidad Católica del Perú"
-              body="Formación de base que sostiene una comprensión rigurosa de las personas, los procesos y el desarrollo humano."
+              body="Una base rigurosa para pensar el desarrollo humano, el aprendizaje y los procesos con profundidad."
             />
           </div>
         </div>
       </section>
 
-      <section
-        id="contacto"
-        className="border-t border-[var(--color-line)] bg-[var(--color-olive)]/18"
-      >
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-16 sm:px-10 lg:grid-cols-[1fr_auto] lg:px-16">
+      <section className="content-wrap section-space">
+        <div className="section-header">
           <div>
-            <p className="section-kicker">Contacto</p>
-            <h3 className="mt-4 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl">
-              Si quieres conversar sobre aprendizaje, desarrollo o diseño de
-              capacidades, estaré encantada de conectar.
-            </h3>
-            <p className="mt-5 max-w-xl text-base leading-8 text-[var(--color-copy)]">
-              Esta página presenta una primera versión editorial de mi perfil
-              profesional y puede seguir creciendo con proyectos, experiencia
-              detallada o una sección de servicios.
+            <p className="eyebrow">Próximas secciones sugeridas</p>
+            <h2 className="section-title">
+              Para que la web se vea más sólida, estas piezas pueden elevarla
+              muchísimo.
+            </h2>
+          </div>
+        </div>
+
+        <div className="suggestion-grid">
+          {suggestions.map((item) => (
+            <article className="suggestion-card" key={item}>
+              <span className="suggestion-dot" aria-hidden="true" />
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="contacto" className="cta-section">
+        <div className="content-wrap cta-layout">
+          <div>
+            <p className="eyebrow">Contacto</p>
+            <h2 className="section-title cta-title">
+              Si quieres, esta página puede evolucionar hacia una presencia más
+              autoral, más comercial o más corporativa.
+            </h2>
+            <p className="section-text cta-copy">
+              Ya quedó más limpia, más legible y mejor jerarquizada. El
+              siguiente salto depende de la información que quieras mostrar y de
+              la imagen profesional que quieras proyectar.
             </p>
           </div>
 
-          <div className="flex items-end">
+          <div className="cta-actions">
+            <a className="button button-primary" href="#preguntas">
+              Completar versión final
+            </a>
             <a
-              className="inline-flex rounded-full bg-[var(--color-burgundy)] px-6 py-3 text-xs uppercase tracking-[0.3em] text-white transition hover:translate-y-[-1px] hover:shadow-[0_20px_40px_rgba(95,5,28,0.2)]"
+              className="button button-secondary"
               href="https://www.linkedin.com/in/p%C3%ADa-guti%C3%A9rrez-sasaky/"
             >
-              Ver LinkedIn
+              LinkedIn
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="preguntas" className="content-wrap section-space">
+        <div className="glass-card">
+          <p className="eyebrow">Para la siguiente versión</p>
+          <h2 className="section-title">
+            Con tres piezas más, esta web puede quedar muchísimo más fuerte.
+          </h2>
+          <div className="suggestion-grid">
+            <article className="suggestion-card">
+              <span className="suggestion-dot" aria-hidden="true" />
+              <p>Tu correo profesional o el canal por el que prefieres que te contacten.</p>
+            </article>
+            <article className="suggestion-card">
+              <span className="suggestion-dot" aria-hidden="true" />
+              <p>Dos o tres proyectos, experiencias o logros que quieras destacar.</p>
+            </article>
+            <article className="suggestion-card">
+              <span className="suggestion-dot" aria-hidden="true" />
+              <p>Si prefieres un tono más autoral, más comercial o más corporativo.</p>
+            </article>
+            <article className="suggestion-card">
+              <span className="suggestion-dot" aria-hidden="true" />
+              <p>Si quieres incluir foto, servicios, testimonios o una sección de agenda.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -197,71 +275,21 @@ export default function Home() {
   );
 }
 
-function ColorChip({ hex, label }: { hex: string; label: string }) {
+function InfoLine({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center gap-4">
-      <div
-        aria-hidden="true"
-        className="h-14 w-14 rounded-2xl border border-black/5 shadow-[0_12px_30px_rgba(30,20,20,0.08)]"
-        style={{ backgroundColor: hex }}
-      />
-      <div>
-        <p className="text-sm uppercase tracking-[0.18em] text-[var(--color-burgundy)]">
-          {label}
-        </p>
-        <p className="mt-1 text-sm text-[var(--color-copy)]">{hex}</p>
-      </div>
+    <div className="info-line">
+      <span>{label}</span>
+      <strong>{value}</strong>
     </div>
-  );
-}
-
-function Stat({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[var(--color-muted)]">
-        {label}
-      </p>
-      <p className="mt-2 text-lg text-[var(--color-burgundy)]">{value}</p>
-    </div>
-  );
-}
-
-function InfoCard({
-  index,
-  title,
-  body,
-}: {
-  index: string;
-  title: string;
-  body: string;
-}) {
-  return (
-    <article className="group rounded-[2rem] border border-[var(--color-line)] bg-white/72 p-7 transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(74,67,35,0.08)]">
-      <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[var(--color-muted)]">
-        {index}
-      </p>
-      <h4 className="mt-5 font-serif text-3xl text-[var(--color-burgundy)]">
-        {title}
-      </h4>
-      <p className="mt-4 text-base leading-8 text-[var(--color-copy)]">
-        {body}
-      </p>
-    </article>
   );
 }
 
 function EducationCard({ title, body }: { title: string; body: string }) {
   return (
-    <article className="rounded-[2rem] border border-[var(--color-line)] bg-white/72 p-7 backdrop-blur">
-      <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[var(--color-muted)]">
-        Formación
-      </p>
-      <h4 className="mt-5 font-serif text-3xl text-[var(--color-burgundy)]">
-        {title}
-      </h4>
-      <p className="mt-4 text-base leading-8 text-[var(--color-copy)]">
-        {body}
-      </p>
+    <article className="education-card">
+      <p className="panel-kicker">Formación</p>
+      <h3 className="card-title">{title}</h3>
+      <p className="card-body">{body}</p>
     </article>
   );
 }
