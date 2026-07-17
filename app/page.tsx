@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { VirtualAssistant } from "./VirtualAssistant";
 
 const strengths = [
   "Psicología aplicada al aprendizaje",
@@ -26,10 +27,25 @@ const sections = [
 ];
 
 const suggestions = [
-  "Casos o proyectos destacados",
+  "Reflexiones sobre aprendizaje y formación",
   "Servicios o formas de colaborar",
   "Testimonios o recomendaciones",
-  "Artículos, ideas o líneas de investigación",
+  "Diseño de experiencias de aprendizaje",
+];
+
+const reflections = [
+  {
+    title: "Aprender no es solo adquirir contenido",
+    body: "Para mí, la formación tiene más sentido cuando conecta con la experiencia, las motivaciones y los desafíos reales de las personas. Aprender no es solo recibir información: es transformar la manera en que comprendemos y actuamos.",
+  },
+  {
+    title: "La psicología aporta profundidad al diseño formativo",
+    body: "Mi formación como psicóloga atraviesa mi manera de pensar el aprendizaje. Me interesa comprender a las personas, sus procesos y sus contextos antes de diseñar una propuesta que pretenda movilizar capacidades.",
+  },
+  {
+    title: "El criterio humano también es una decisión estratégica",
+    body: "Creo en soluciones de aprendizaje que mantengan rigor y estructura, pero que al mismo tiempo estén diseñadas con sensibilidad. Lo humano no es un adorno: es parte central de la efectividad de la formación.",
+  },
 ];
 
 export const metadata: Metadata = {
@@ -76,10 +92,11 @@ export default function Home() {
                 estructura y dirección.
               </h1>
               <p className="hero-text">
-                Soy psicóloga y trabajo desde el cruce entre aprendizaje,
-                desarrollo de capacidades y diseño de soluciones formativas. Me
-                interesa crear experiencias que combinen criterio estratégico,
-                comprensión humana y una ejecución cuidadosamente pensada.
+                Soy psicóloga por la Pontificia Universidad Católica del Perú y
+                trabajo desde el cruce entre aprendizaje, desarrollo de
+                capacidades y diseño de soluciones formativas. Me interesa crear
+                experiencias que combinen criterio estratégico, comprensión
+                humana y una ejecución cuidadosamente pensada.
               </p>
 
               <div className="hero-actions">
@@ -109,6 +126,7 @@ export default function Home() {
                     value="Diseño de soluciones de aprendizaje"
                   />
                   <InfoLine label="Ubicación" value="Perú" />
+                  <InfoLine label="Correo" value="pia.gutierrez@pucp.edu.pe" />
                 </div>
               </div>
             </aside>
@@ -132,7 +150,9 @@ export default function Home() {
               que realmente acompañen a las personas y a las organizaciones. Me
               atrae construir soluciones que no solo respondan a una necesidad,
               sino que también se sientan coherentes, humanas y bien sostenidas
-              en el tiempo.
+              en el tiempo. Valoro especialmente una perspectiva de formación
+              que tome en cuenta a la persona, su contexto y la complejidad
+              psicológica que atraviesa todo proceso de aprendizaje.
             </p>
           </div>
         </div>
@@ -163,6 +183,26 @@ export default function Home() {
               <h3 className="card-title">{section.title}</h3>
               <p className="card-body">{section.body}</p>
               <span className="card-link">Leer más</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="content-wrap section-space">
+        <div className="section-header">
+          <div>
+            <p className="eyebrow">Reflexiones</p>
+            <h2 className="section-title">
+              Una mirada del aprendizaje que parte de lo humano.
+            </h2>
+          </div>
+        </div>
+
+        <div className="editorial-grid editorial-grid-reflections">
+          {reflections.map((reflection) => (
+            <article className="editorial-card reflection-card" key={reflection.title}>
+              <h3 className="card-title">{reflection.title}</h3>
+              <p className="card-body">{reflection.body}</p>
             </article>
           ))}
         </div>
@@ -216,6 +256,10 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="content-wrap section-space">
+        <VirtualAssistant />
+      </section>
+
       <section id="contacto" className="cta-section">
         <div className="content-wrap cta-layout">
           <div>
@@ -232,8 +276,11 @@ export default function Home() {
           </div>
 
           <div className="cta-actions">
-            <a className="button button-primary" href="#preguntas">
-              Completar versión final
+            <a
+              className="button button-primary"
+              href="mailto:pia.gutierrez@pucp.edu.pe"
+            >
+              Escribir por correo
             </a>
             <a
               className="button button-secondary"
@@ -258,15 +305,15 @@ export default function Home() {
             </article>
             <article className="suggestion-card">
               <span className="suggestion-dot" aria-hidden="true" />
-              <p>Dos o tres proyectos, experiencias o logros que quieras destacar.</p>
+              <p>Dos o tres experiencias concretas que quisieras convertir en casos o relatos más visibles.</p>
             </article>
             <article className="suggestion-card">
               <span className="suggestion-dot" aria-hidden="true" />
-              <p>Si prefieres un tono más autoral, más comercial o más corporativo.</p>
+              <p>Si prefieres que la web avance hacia un tono más autoral, más comercial o más institucional.</p>
             </article>
             <article className="suggestion-card">
               <span className="suggestion-dot" aria-hidden="true" />
-              <p>Si quieres incluir foto, servicios, testimonios o una sección de agenda.</p>
+              <p>Si quieres incluir foto, servicios, testimonios o un espacio más tipo diario de reflexiones.</p>
             </article>
           </div>
         </div>
