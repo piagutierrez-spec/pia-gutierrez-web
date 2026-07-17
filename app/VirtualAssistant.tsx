@@ -24,6 +24,7 @@ const initialMessages: Message[] = [
 export function VirtualAssistant() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
+  const [open, setOpen] = useState(false);
 
   const placeholder = useMemo(
     () => "Escribe una duda sobre su enfoque, experiencia o forma de trabajo",
@@ -92,57 +93,82 @@ export function VirtualAssistant() {
   }
 
   return (
-    <div className="assistant-shell">
-      <div className="assistant-header">
-        <div>
-          <p className="eyebrow">Asistente virtual</p>
-          <h3 className="assistant-title">Conversar, orientar y resolver dudas</h3>
-        </div>
-        <span className="assistant-badge">En vivo</span>
-      </div>
-
-      <div className="assistant-messages" aria-live="polite">
-        {messages.map((message, index) => (
-          <div
-            className={`assistant-message assistant-message-${message.role}`}
-            key={`${message.role}-${index}`}
-          >
-            <p>{message.text}</p>
+    <>
+      {open ? (
+        <div className="assistant-shell assistant-floating" id="assistant">
+          <div className="assistant-header">
+            <div>
+              <p className="eyebrow">Asistente virtual</p>
+              <h3 className="assistant-title">Consulta rápida</h3>
+            </div>
+            <div className="assistant-top-actions">
+              <span className="assistant-badge">En vivo</span>
+              <button
+                aria-label="Cerrar asistente"
+                className="assistant-close"
+                onClick={() => setOpen(false)}
+                type="button"
+              >
+                ×
+              </button>
+            </div>
           </div>
-        ))}
-      </div>
 
-      <div className="assistant-prompts" aria-label="Preguntas sugeridas">
-        {quickPrompts.map((prompt) => (
-          <button
-            className="assistant-prompt"
-            key={prompt}
-            onClick={() => sendMessage(prompt)}
-            type="button"
+          <div className="assistant-messages" aria-live="polite">
+            {messages.map((message, index) => (
+              <div
+                className={`assistant-message assistant-message-${message.role}`}
+                key={`${message.role}-${index}`}
+              >
+                <p>{message.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="assistant-prompts" aria-label="Preguntas sugeridas">
+            {quickPrompts.map((prompt) => (
+              <button
+                className="assistant-prompt"
+                key={prompt}
+                onClick={() => sendMessage(prompt)}
+                type="button"
+              >
+                {prompt}
+              </button>
+            ))}
+          </div>
+
+          <form
+            className="assistant-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              sendMessage(input);
+            }}
           >
-            {prompt}
-          </button>
-        ))}
-      </div>
+            <input
+              className="assistant-input"
+              onChange={(event) => setInput(event.target.value)}
+              placeholder={placeholder}
+              type="text"
+              value={input}
+            />
+            <button className="assistant-submit" type="submit">
+              Enviar
+            </button>
+          </form>
+        </div>
+      ) : null}
 
-      <form
-        className="assistant-form"
-        onSubmit={(event) => {
-          event.preventDefault();
-          sendMessage(input);
-        }}
+      <button
+        className="assistant-trigger"
+        onClick={() => setOpen((current) => !current)}
+        type="button"
       >
-        <input
-          className="assistant-input"
-          onChange={(event) => setInput(event.target.value)}
-          placeholder={placeholder}
-          type="text"
-          value={input}
-        />
-        <button className="button button-primary assistant-submit" type="submit">
-          Enviar
-        </button>
-      </form>
-    </div>
+        <span className="assistant-trigger-icon" aria-hidden="true">
+          💬
+        </span>
+        <span className="assistant-trigger-text">Asistente</span>
+      </button>
+    </>
   );
 }

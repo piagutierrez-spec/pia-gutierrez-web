@@ -36,6 +36,8 @@ body {
     var(--background);
   color: var(--ink);
   font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 a {
@@ -258,12 +260,12 @@ input {
 }
 
 .hero-photo-frame {
-  width: min(100%, 430px);
-  aspect-ratio: 0.78;
+  width: min(100%, 340px);
+  aspect-ratio: 0.8;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 248, 244, 0.2);
   box-shadow: var(--shadow);
-  padding: 1rem;
+  padding: 0.8rem;
 }
 
 .hero-photo {
@@ -276,8 +278,7 @@ input {
 .intro-band,
 .section-block,
 .assistant-wrap,
-.contact-panel,
-.claims-panel {
+.contact-panel {
   padding: 5rem 0;
 }
 
@@ -465,8 +466,24 @@ input {
   color: var(--muted);
 }
 
+.assistant-wrap {
+  display: none;
+}
+
 .assistant-shell {
   padding: 2rem;
+}
+
+.assistant-floating {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 70;
+  width: min(390px, calc(100vw - 28px));
+  max-height: min(78vh, 720px);
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--paper-strong);
 }
 
 .assistant-header {
@@ -475,6 +492,12 @@ input {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.assistant-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
 .assistant-title {
@@ -494,6 +517,20 @@ input {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.assistant-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid rgba(95, 5, 28, 0.14);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--burgundy);
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .assistant-messages {
@@ -555,18 +592,67 @@ input {
   outline-offset: 2px;
 }
 
-.contact-panel,
-.claims-panel {
+.assistant-trigger {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 69;
+  display: inline-flex;
   align-items: center;
+  gap: 0.7rem;
+  min-height: 3.35rem;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--burgundy);
+  color: #fff8f4;
+  box-shadow: 0 22px 40px rgba(49, 20, 16, 0.26);
+  cursor: pointer;
 }
 
+.assistant-trigger-icon {
+  display: inline-flex;
+  font-size: 1.15rem;
+}
+
+.assistant-trigger-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-panel,
 .contact-actions {
   padding: 1.4rem;
 }
 
-.claims-panel {
-  padding: 2rem;
-  margin-bottom: 5rem;
+.claims-fab {
+  position: fixed;
+  left: 18px;
+  bottom: 22px;
+  z-index: 68;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  max-width: 180px;
+  padding: 0.72rem 0.8rem;
+  border: 1px solid rgba(95, 5, 28, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 250, 246, 0.96);
+  color: var(--burgundy);
+  box-shadow: 0 18px 40px rgba(49, 20, 16, 0.1);
+}
+
+.claims-fab-icon {
+  font-size: 1rem;
+}
+
+.claims-fab-label {
+  font-size: 0.68rem;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 1080px) {
@@ -586,7 +672,7 @@ input {
   }
 
   .hero-photo-frame {
-    width: min(100%, 360px);
+    width: min(100%, 290px);
   }
 }
 
@@ -630,8 +716,24 @@ input {
   .assistant-shell,
   .strength-card,
   .service-card,
-  .claims-panel,
   .contact-actions {
     padding: 1.4rem;
+  }
+
+  .assistant-floating {
+    right: 12px;
+    bottom: 84px;
+    width: calc(100vw - 24px);
+  }
+
+  .assistant-trigger {
+    right: 12px;
+    bottom: 14px;
+  }
+
+  .claims-fab {
+    left: 12px;
+    bottom: 14px;
+    max-width: 148px;
   }
 }

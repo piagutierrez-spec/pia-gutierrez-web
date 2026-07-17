@@ -65,16 +65,20 @@ export default function Home() {
           <div className="hero-copy">
             <p className="section-kicker">Psicología · Learning & Development</p>
             <h1 className="hero-title">
-              Diseñar aprendizaje con
+              Diseño de experiencias
               <br />
-              claridad, belleza
-              <br />y profundidad humana.
+              de aprendizaje
+              <br />
+              significativas y
+              <br />
+              desarrollo de capacidades.
             </h1>
             <p className="hero-text">
-              Soy psicóloga y trabajo en la intersección entre desarrollo
-              docente, diseño de experiencias de aprendizaje y fortalecimiento
-              de capacidades. Mi enfoque combina criterio estratégico, cuidado
-              por las personas y soluciones formativas con sentido.
+              Soy psicóloga y trabajo en la intersección entre aprendizaje,
+              desarrollo docente y soluciones formativas. Mi enfoque parte del
+              diagnóstico de necesidades, la estructura pedagógica y una mirada
+              humana que permita traducir objetivos en experiencias útiles,
+              rigurosas y aplicables.
             </p>
 
             <div className="hero-actions">
@@ -91,10 +95,10 @@ export default function Home() {
                 <a href="#sobre-mi">Conoce mi enfoque</a>
               </li>
               <li>
-                <a href="#assistant">Habla con mi asistente</a>
+                <a href="#servicios">Ver líneas de trabajo</a>
               </li>
               <li>
-                <a href="#libro-reclamaciones">Libro de reclamaciones</a>
+                <a href="#formacion">Revisar formación</a>
               </li>
             </ul>
           </div>
@@ -254,22 +258,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="shell claims-panel" id="libro-reclamaciones">
-        <div>
-          <p className="section-kicker">Información adicional</p>
-          <h2 className="section-title">Libro de reclamaciones</h2>
-          <p className="section-text">
-            Si este sitio llegara a ofrecer servicios directos al público, aquí
-            puede incorporarse el acceso formal al libro de reclamaciones.
-            Actualmente se deja este espacio listo para integrarlo con el enlace
-            o formulario oficial correspondiente.
-          </p>
-        </div>
-
-        <a className="primary-button" href="#contacto">
-          Solicitar atención
-        </a>
-      </section>
+      <a
+        aria-label="Libro de reclamaciones"
+        className="claims-fab"
+        href="#contacto"
+        id="libro-reclamaciones"
+        title="Libro de reclamaciones"
+      >
+        <span className="claims-fab-icon" aria-hidden="true">
+          📘
+        </span>
+        <span className="claims-fab-label">Libro de reclamaciones</span>
+      </a>
     </main>
   );
 }
